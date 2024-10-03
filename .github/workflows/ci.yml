@@ -10,6 +10,12 @@ jobs:
       - name: 📁 Copiando o Projeto
         uses: actions/checkout@v4
 
+      - name: 🛠️ Instalar Dependências
+        run: npm install
+
+      - name: 🔄 Compilar TypeScript
+        run: npx tsc --project cypress/tsconfig.json
+
       - name: 🧪 Rodando os Testes do Cypress
         uses: cypress-io/github-action@v6
         with:
