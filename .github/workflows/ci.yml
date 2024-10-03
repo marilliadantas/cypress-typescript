@@ -7,15 +7,15 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: 📁 Copiando o Projeto 📂 
+      - name: 📁 Copiando o Projeto
         uses: actions/checkout@v4
 
-      - name: 🧪 Rodando os Testes do Cypress 🧪
+      - name: 🧪 Rodando os Testes do Cypress
         uses: cypress-io/github-action@v6
         with:
-            env: EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }},EMAILFAKE=teste@bol.com.br
+            env: EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
 
-      - name: ⛔ Upload dos arquivos em caso de falha 🎬
+      - name: ⛔ Upload dos arquivos em caso de falha
         uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -23,7 +23,7 @@ jobs:
           path: cypress/screenshots
           if-no-files-found: ignore 
 
-      - name: ✅ Upload dos arquivos em caso de sucesso 📹
+      - name: ✅ Upload dos arquivos em caso de sucesso
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
