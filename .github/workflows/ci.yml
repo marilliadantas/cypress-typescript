@@ -10,16 +10,10 @@ jobs:
       - name: 📁 Copiando o Projeto
         uses: actions/checkout@v4
 
-      - name: 🛠️ Instalar Dependências
-        run: npm install
-
-      - name: 📜 Compilando o TypeScript no Cypress
-        run: npx tsc --project cypress/tsconfig.json
-
       - name: 🧪 Rodando os Testes do Cypress
         uses: cypress-io/github-action@v6
         with:
-          env: EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
+            env: EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
 
       - name: ⛔ Upload dos arquivos em caso de falha
         uses: actions/upload-artifact@v4

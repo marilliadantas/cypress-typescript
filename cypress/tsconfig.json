@@ -4,5 +4,6 @@
     "lib": ["es5", "dom"],
     "types": ["cypress", "node"]
   },
-  "include": ["*/*.ts", "../index.d.ts"]
+  "include": ["*/*.ts", "../index.d.ts"],
+  "exclude": ["node_modules"]
 }
