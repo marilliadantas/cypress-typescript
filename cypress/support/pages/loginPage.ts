@@ -26,6 +26,10 @@ export default {
     click(login.btnEntrar);
   },
 
+  clicarCadastro() {
+    click(login.linkCadastro)
+  },
+
   validarMsgErro() {
     return get_text(login.msgErro);
   },

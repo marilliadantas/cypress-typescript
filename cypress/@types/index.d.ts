@@ -5,6 +5,12 @@ interface User {
   password: string | null;
 }
 
+interface UserRegister {
+  name: string | null;
+  email: string | null;
+  password: string | null;
+}
+
 declare global {
   namespace Cypress {
     interface Chainable {
