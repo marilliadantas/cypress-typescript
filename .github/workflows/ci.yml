@@ -13,12 +13,16 @@ jobs:
         with:
             command: npx cypress run --env BASE_URL=${{ secrets.BASE_URL }},EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
 
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - name: Uploading files in case of failure
+        uses: actions/upload-artifact@v4
+        if: failure()
         with:
-            name: Cypress Result
-            path: |
-                cypress/screenshots
-                cypress/videos
-                cypress/results
+            name: cypress-screenshots
+            path: cypress/screenshots
+            if-no-files-found: ignore 
+      - name: Upload files if successful
+        uses: actions/upload-artifact@v4
+        with:
+            name: cypress-videos
+            path: cypress/videos
             if-no-files-found: ignore
