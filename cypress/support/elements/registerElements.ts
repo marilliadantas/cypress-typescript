@@ -3,5 +3,6 @@ export const register = {
     inputEmail: '#email',
     inputPassword: '#senha',
     btnCadastrar: 'input[class="btn btn-primary"]',
-    alertaSucesso: 'div[class="alert alert-success"]'
+    alertaSucesso: 'div[class="alert alert-success"]',
+    alertaErro: 'div[class="alert alert-danger"]'
 }

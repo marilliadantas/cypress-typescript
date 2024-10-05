@@ -33,4 +33,8 @@ export default {
   validarMsgSucesso() {
     return get_text(register.alertaSucesso);
   },
+
+  validarMsgErro() {
+    return get_text(register.alertaErro);
+  }
 };
