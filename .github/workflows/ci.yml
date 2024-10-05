@@ -3,16 +3,22 @@ name: CI
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Cypress Tests 🧪
         uses: cypress-io/github-action@v6
-        with:
-            command: npx cypress run --env BASE_URL=${{ secrets.BASE_URL }},EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
 
+      - name: Uploading files in case of failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+            name: cypress-screenshots
+            path: cypress/screenshots
+            if-no-files-found: ignore 
+            
       - name: Upload files if successful
         uses: actions/upload-artifact@v4
         with:
