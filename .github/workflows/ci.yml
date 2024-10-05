@@ -11,4 +11,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-            command: npx cypress run --config-file cypress.config.js
+            command: npx cypress run --env BASE_URL=${{ secrets.BASE_URL }},EMAIL=${{ secrets.EMAIL }},PASSWORD=${{ secrets.PASSWORD }}
